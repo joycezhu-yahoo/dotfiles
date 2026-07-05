@@ -107,6 +107,14 @@ return {
 					filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 				})
 			end,
+			["vimls"] = function()
+				lspconfig["vimls"].setup({
+					capabilities = capabilities,
+					filetypes = {
+						"vim",
+					},
+				})
+			end,
 			["emmet_ls"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_ls"].setup({

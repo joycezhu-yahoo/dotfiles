@@ -54,5 +54,7 @@ return {
 				},
 			},
 		})
+
+		treesitter.install()
 	end,
 }
