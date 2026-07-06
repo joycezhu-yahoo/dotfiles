@@ -1,10 +1,25 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
+	lazy = false,
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
+		-- "HiPhish/rainbow-delimiters.nvim",
 	},
+	init = function()
+		vim.g.rainbow_delimiters = {
+			highlight = {
+				"RainbowDelimiterRed",
+				"RainbowDelimiterYellow",
+				"RainbowDelimiterBlue",
+				"RainbowDelimiterOrange",
+				"RainbowDelimiterGreen",
+				"RainbowDelimiterViolet",
+				"RainbowDelimiterCyan",
+			},
+		}
+	end,
 	config = function()
 		-- import nvim-treesitter plugin
 		local treesitter = require("nvim-treesitter.config")
@@ -54,7 +69,6 @@ return {
 				},
 			},
 		})
-
-		treesitter.install()
+		vim.treesitter.language.register("bash", "zsh")
 	end,
 }
